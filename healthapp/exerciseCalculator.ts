@@ -10,6 +10,10 @@ interface Result {
 }
 
 
+
+
+
+
 const calculateExercises = (hours:number[], target: number):Result => {
     const average = (hours.reduce((s,n) => s+n,0))/hours.length;
     let rating: number;

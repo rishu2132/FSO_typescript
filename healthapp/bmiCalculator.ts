@@ -4,7 +4,7 @@ interface Input {
 }
 
 
-const parseArguments = (argv:string[]) => {
+const parseArguments = (argv:string[]): Input => {
     if (argv.length > 4)throw new Error('too much arguments');
     if (argv.length < 4)throw new Error('Not sufficient arguments');
 
