@@ -9,8 +9,26 @@ interface Result {
 
 }
 
+interface WorkHours {
+    days: number[],
+    target: number
+}
 
 
+const enterArguments = (argv: string[]): WorkHours  => {
+    if (argv.length < 4) throw new Error ('insufficient arguments. Need more arguments.');
+
+    if ((argv.filter(n => isNaN(Number(n)))).length === 2){
+        let daysArr = argv.slice(3);
+        console.log(daysArr)
+        return {
+            days:daysArr.map(n => Number(n)),
+            target: Number(argv[2])
+        }
+    } else {
+        throw new Error ('all arguments are not numbers (required input) ')
+    }
+}
 
 
 
@@ -40,4 +58,14 @@ const calculateExercises = (hours:number[], target: number):Result => {
 }
 
 
-console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1],2))
+try {
+    const {days, target} = enterArguments(process.argv);
+    console.log(calculateExercises(days,target));
+
+} catch (error: unknown){
+    let errorMessage = 'Something bad happened.';
+    if (error instanceof Error){
+        errorMessage += "Error: " + error.message;
+    }
+    console.log(errorMessage);
+}
