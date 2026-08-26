@@ -12,12 +12,11 @@ const parseArguments = (argv:string[]): Input => {
         return {
             height: Number(argv[2]),
             weight: Number(argv[3])
-        }
+        };
     } else {
-        throw new Error ('argument was not number')
+        throw new Error ('argument was not number');
     }
-}
-
+};
 
 
 const calculateBmi = (height: number, weight: number) => {
@@ -28,7 +27,7 @@ const calculateBmi = (height: number, weight: number) => {
     else if (bmi >= 18.5 && bmi <=25) return 'Normal range';
     else if (bmi > 25 && bmi <= 30) return 'Overweight';
     else return "Obese";
-}
+};
 
 
 if(process.argv[1] === import.meta.filename){

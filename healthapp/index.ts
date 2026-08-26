@@ -17,18 +17,18 @@ app.get('/bmi', (req,res) => {
             height,
             weight,
             bmi
-        })
+        });
     } else {
         res.status(400).send({
             error: "malformatted parameters"
-        })
+        });
     }
 
 
-})
+});
 
 const PORT = 3003;
 
 app.listen(PORT, () => {
-    console.log(`Server is running on ${PORT}`)
-})
+    console.log(`Server is running on ${PORT}`);
+});
