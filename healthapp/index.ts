@@ -37,9 +37,9 @@ app.post('/exercises', (req,res) => {
     }
 
     const allNumbers: number[] = daily_exercises.map(Number);
-
-    if(Number(target) && !allNumbers.some(isNaN)){
-        const result = calculateExercises(allNumbers,target);
+    const targetNumber: number = Number(target);
+    if(!isNaN(targetNumber) && !allNumbers.some(isNaN)){
+        const result = calculateExercises(allNumbers,targetNumber);
         return res.send(result);
     } 
 
