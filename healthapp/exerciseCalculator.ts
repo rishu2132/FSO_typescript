@@ -32,7 +32,7 @@ const enterArguments = (argv: string[]): WorkHours  => {
 
 
 
-const calculateExercises = (hours:number[], target: number):Result => {
+export const calculateExercises = (hours:number[], target: number):Result => {
     const average = (hours.reduce((s,n) => s+n,0))/hours.length;
     let rating: number;
     let ratingDescription: string;
@@ -57,15 +57,18 @@ const calculateExercises = (hours:number[], target: number):Result => {
     };
 };
 
-
-try {
+if (process.argv[1] === import.meta.filename){
+    try {
     const {days, target} = enterArguments(process.argv);
     console.log(calculateExercises(days,target));
 
-} catch (error: unknown){
-    let errorMessage = 'Something bad happened.';
-    if (error instanceof Error){
-        errorMessage += "Error: " + error.message;
+    } catch (error: unknown){
+        let errorMessage = 'Something bad happened.';
+        if (error instanceof Error){
+            errorMessage += "Error: " + error.message;
+        }
+        console.log(errorMessage);
     }
-    console.log(errorMessage);
-}
+};
+
+
