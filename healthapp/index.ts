@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.json());
 app.get('/hello',(_req, res) => {
-    res.send('Hello FullStack!');
+    res.send('Hello Full Stack!');
 });
 
 app.get('/bmi', (req,res) => {
