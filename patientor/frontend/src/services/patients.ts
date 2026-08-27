@@ -5,7 +5,7 @@ import { apiBaseUrl } from "../constants";
 
 const getAll = async () => {
   const { data } = await axios.get<Patient[]>(
-    `/patients`
+    `/api/patients`
   );
 
   return data;
