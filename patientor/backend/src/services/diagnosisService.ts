@@ -7,4 +7,4 @@ const getAll = (): Diagnosis[] => {
 
 export default {
     getAll
-}
+};
